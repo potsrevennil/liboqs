@@ -248,6 +248,9 @@
 #cmakedefine OQS_ENABLE_SIG_cross_rsdpg_256_fast_avx2 1
 #cmakedefine OQS_ENABLE_SIG_cross_rsdpg_256_small 1
 #cmakedefine OQS_ENABLE_SIG_cross_rsdpg_256_small_avx2 1
+
+#cmakedefine OQS_ENABLE_SIG_UOV 1
+#cmakedefine OQS_ENABLE_SIG_uov_ov_is 1
 ///// OQS_COPY_FROM_UPSTREAM_FRAGMENT_ADD_ALG_ENABLE_DEFINES_END
 
 ///// OQS_COPY_FROM_LIBJADE_FRAGMENT_ADD_ALG_ENABLE_DEFINES_START

@@ -187,6 +187,9 @@ cmake_dependent_option(OQS_ENABLE_SIG_cross_rsdpg_192_small "" ON "OQS_ENABLE_SI
 cmake_dependent_option(OQS_ENABLE_SIG_cross_rsdpg_256_balanced "" ON "OQS_ENABLE_SIG_CROSS" OFF)
 cmake_dependent_option(OQS_ENABLE_SIG_cross_rsdpg_256_fast "" ON "OQS_ENABLE_SIG_CROSS" OFF)
 cmake_dependent_option(OQS_ENABLE_SIG_cross_rsdpg_256_small "" ON "OQS_ENABLE_SIG_CROSS" OFF)
+
+option(OQS_ENABLE_SIG_UOV "Enable uov algorithm family" ON)
+cmake_dependent_option(OQS_ENABLE_SIG_uov_ov_is "" ON "OQS_ENABLE_SIG_UOV" OFF)
 ##### OQS_COPY_FROM_UPSTREAM_FRAGMENT_ADD_ENABLE_BY_ALG_END
 
 ##### OQS_COPY_FROM_LIBJADE_FRAGMENT_ADD_ENABLE_BY_ALG_START
@@ -660,6 +663,7 @@ endif()
 if(OQS_DIST_X86_64_BUILD OR (OQS_USE_AVX2_INSTRUCTIONS))
     cmake_dependent_option(OQS_ENABLE_SIG_cross_rsdpg_256_small_avx2 "" ON "OQS_ENABLE_SIG_cross_rsdpg_256_small" OFF)
 endif()
+
 
 ##### OQS_COPY_FROM_UPSTREAM_FRAGMENT_ADD_ENABLE_BY_ALG_CONDITIONAL_END
 

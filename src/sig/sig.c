@@ -58,7 +58,8 @@ OQS_API const char *OQS_SIG_alg_identifier(size_t i) {
 		OQS_SIG_alg_cross_rsdpg_192_small,
 		OQS_SIG_alg_cross_rsdpg_256_balanced,
 		OQS_SIG_alg_cross_rsdpg_256_fast,
-		OQS_SIG_alg_cross_rsdpg_256_small,///// OQS_COPY_FROM_UPSTREAM_FRAGMENT_ALG_IDENTIFIER_END
+		OQS_SIG_alg_cross_rsdpg_256_small,
+		OQS_SIG_alg_uov_ov_is,///// OQS_COPY_FROM_UPSTREAM_FRAGMENT_ALG_IDENTIFIER_END
 	};
 	if (i >= OQS_SIG_algs_length) {
 		return NULL;
@@ -384,6 +385,13 @@ OQS_API int OQS_SIG_alg_is_enabled(const char *method_name) {
 #else
 		return 0;
 #endif
+
+	} else if (0 == strcasecmp(method_name, OQS_SIG_alg_uov_ov_is)) {
+#ifdef OQS_ENABLE_SIG_uov_ov_is
+		return 1;
+#else
+		return 0;
+#endif
 ///// OQS_COPY_FROM_UPSTREAM_FRAGMENT_ENABLED_CASE_END
 	} else {
 		return 0;
@@ -700,6 +708,13 @@ OQS_API OQS_SIG *OQS_SIG_new(const char *method_name) {
 	} else if (0 == strcasecmp(method_name, OQS_SIG_alg_cross_rsdpg_256_small)) {
 #ifdef OQS_ENABLE_SIG_cross_rsdpg_256_small
 		return OQS_SIG_cross_rsdpg_256_small_new();
+#else
+		return NULL;
+#endif
+
+	} else if (0 == strcasecmp(method_name, OQS_SIG_alg_uov_ov_is)) {
+#ifdef OQS_ENABLE_SIG_uov_ov_is
+		return OQS_SIG_uov_ov_is_new();
 #else
 		return NULL;
 #endif
